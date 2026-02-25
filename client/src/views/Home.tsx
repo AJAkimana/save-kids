@@ -20,7 +20,10 @@ import {
 import { alpha } from '@mui/material/styles'
 import { Facebook, Instagram, Pinterest, Search, Twitter, YouTube } from '@mui/icons-material'
 import {
-  categorySpotlights,
+  categoryCards,
+  categoryFeature,
+  categoryList,
+  categoryTabs,
   destinations,
   featured,
   footer,
@@ -120,53 +123,49 @@ function Home() {
         </Toolbar>
       </AppBar>
 
-      <Box sx={{ pt: { xs: 6, md: 8 }, pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
-          <Box
-            sx={(theme) => ({
-              position: 'relative',
-              borderRadius: 4,
-              overflow: 'hidden',
-              minHeight: { xs: 360, md: 420 },
-              backgroundImage: `url(${hero.image})`,
-              backgroundPosition: 'center',
-              backgroundSize: 'cover',
-              display: 'flex',
-              alignItems: 'flex-end',
-              color: 'common.white',
-              boxShadow: `0 20px 40px ${alpha(theme.palette.common.black, 0.25)}`,
-            })}
-          >
-            <Box
-              sx={{
-                position: 'absolute',
-                inset: 0,
-                bgcolor: 'rgba(0, 0, 0, 0.35)',
-              }}
-            />
-            <Stack spacing={2} sx={{ position: 'relative', p: { xs: 3, md: 6 }, maxWidth: 560 }}>
-              <Typography variant="overline" sx={{ color: 'common.white' }}>
-                {hero.kicker}
-              </Typography>
-              <Typography variant="h1">{hero.title}</Typography>
-              <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.85)' }}>
-                {hero.subtitle}
-              </Typography>
-              <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
-                <Button variant="contained" color="secondary">
-                  {hero.primaryCta}
-                </Button>
-                <Button variant="outlined" color="inherit">
-                  {hero.secondaryCta}
-                </Button>
-              </Stack>
+      <Box
+        sx={(theme) => ({
+          position: 'relative',
+          minHeight: { xs: 360, md: 420 },
+          backgroundImage: `url(${hero.image})`,
+          backgroundPosition: 'center',
+          backgroundSize: 'cover',
+          display: 'flex',
+          alignItems: 'flex-end',
+          color: 'common.white',
+          boxShadow: `0 20px 40px ${alpha(theme.palette.common.black, 0.25)}`,
+        })}
+      >
+        <Box
+          sx={{
+            position: 'absolute',
+            inset: 0,
+            bgcolor: 'rgba(0, 0, 0, 0.35)',
+          }}
+        />
+        <Container maxWidth="lg" sx={{ position: 'relative', py: { xs: 6, md: 10 } }}>
+          <Stack spacing={2} sx={{ maxWidth: 560 }}>
+            <Typography variant="overline" sx={{ color: 'common.white' }}>
+              {hero.kicker}
+            </Typography>
+            <Typography variant="h1">{hero.title}</Typography>
+            <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.85)' }}>
+              {hero.subtitle}
+            </Typography>
+            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2}>
+              <Button variant="contained" color="secondary">
+                {hero.primaryCta}
+              </Button>
+              <Button variant="outlined" color="inherit">
+                {hero.secondaryCta}
+              </Button>
             </Stack>
-          </Box>
+          </Stack>
         </Container>
       </Box>
 
-      <Box sx={{ pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
+      <Box sx={{ px: { xs: 2, md: 4 }, pb: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg" disableGutters>
           <SectionTitle
             title="Latest posts"
             subtitle="Discover stories and itineraries from the community."
@@ -184,8 +183,8 @@ function Home() {
         </Container>
       </Box>
 
-      <Box sx={{ pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
+      <Box sx={{ px: { xs: 2, md: 4 }, pb: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg" disableGutters>
           <Card
             sx={{
               position: 'relative',
@@ -218,66 +217,142 @@ function Home() {
         </Container>
       </Box>
 
-      <Box sx={{ pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
+      <Box sx={{ px: { xs: 2, md: 4 }, pb: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg" disableGutters>
           <SectionTitle
             title="Top destinations"
             subtitle="Handpicked escapes with cinematic views and calm itineraries."
           />
-          <Grid container spacing={3}>
+          <Box
+            sx={{
+              display: 'grid',
+              gap: 3,
+              gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)', md: 'repeat(5, 1fr)' },
+            }}
+          >
             {destinations.map((destination) => (
-              <Grid size={{ xs: 12, sm: 6, md: 3 }} key={destination.id}>
-                <Card>
-                  <CardMedia component="img" height="160" image={destination.image} />
-                  <CardContent>
-                    <Typography variant="subtitle1">{destination.name}</Typography>
-                  </CardContent>
-                </Card>
-              </Grid>
+              <Card key={destination.id} sx={{ position: 'relative', overflow: 'hidden' }}>
+                <CardMedia component="img" height="160" image={destination.image} />
+                <Box
+                  sx={{
+                    position: 'absolute',
+                    inset: 0,
+                    bgcolor: 'rgba(0, 0, 0, 0.3)',
+                  }}
+                />
+                <Typography
+                  variant="subtitle1"
+                  sx={{
+                    position: 'absolute',
+                    bottom: 12,
+                    left: 12,
+                    color: 'common.white',
+                    fontWeight: 600,
+                  }}
+                >
+                  {destination.name}
+                </Typography>
+              </Card>
             ))}
-          </Grid>
+          </Box>
         </Container>
       </Box>
 
-      <Box sx={{ pb: { xs: 6, md: 10 } }}>
-        <Container maxWidth="lg">
-          <SectionTitle
-            title="Category spotlight"
-            subtitle="Curated collections from our editorial team."
-          />
+      <Box sx={{ px: { xs: 2, md: 4 }, pb: { xs: 6, md: 10 } }}>
+        <Container maxWidth="lg" disableGutters>
+          <Stack direction="row" spacing={3} sx={{ mb: 2, flexWrap: 'wrap' }}>
+            {categoryTabs.map((tab) => (
+              <Typography key={tab.id} variant="subtitle2" color="text.secondary">
+                {tab.label}
+              </Typography>
+            ))}
+          </Stack>
+          <Divider sx={{ mb: 4 }} />
           <Grid container spacing={3}>
-            {categorySpotlights.map((item) => (
-              <Grid size={{ xs: 12, md: 4 }} key={item.id}>
-                <Card sx={{ height: '100%' }}>
-                  <CardMedia component="img" height="200" image={item.image} />
-                  <CardContent>
-                    <Stack spacing={1}>
-                      <Typography variant="overline" color="text.secondary">
-                        {item.meta}
-                      </Typography>
-                      <Typography variant="h4" component="h3">
-                        {item.title}
-                      </Typography>
-                      <Typography variant="body2" color="text.secondary">
-                        {item.description}
+            <Grid size={{ xs: 12, md: 6 }}>
+              <Card>
+                <CardMedia component="img" height="220" image={categoryFeature.image} />
+                <CardContent>
+                  <Stack spacing={1.5}>
+                    <Typography variant="caption" color="text.secondary">
+                      {categoryFeature.meta}
+                    </Typography>
+                    <Typography variant="h4" component="h3">
+                      {categoryFeature.title}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {categoryFeature.description}
+                    </Typography>
+                    <Link href="#" underline="none" color="primary">
+                      {categoryFeature.cta}
+                    </Link>
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Stack spacing={2}>
+                {categoryList.map((item) => (
+                  <Stack key={item.id} direction="row" spacing={2}>
+                    <Box
+                      component="img"
+                      src={item.image}
+                      alt={item.title}
+                      sx={{ width: 72, height: 72, borderRadius: 1.5, objectFit: 'cover' }}
+                    />
+                    <Stack spacing={0.5}>
+                      <Typography variant="subtitle2">{item.title}</Typography>
+                      <Typography variant="caption" color="text.secondary">
+                        {item.date}
                       </Typography>
                     </Stack>
-                  </CardContent>
-                </Card>
-              </Grid>
-            ))}
+                  </Stack>
+                ))}
+              </Stack>
+            </Grid>
+            <Grid size={{ xs: 12, md: 3 }}>
+              <Card sx={{ height: '100%' }}>
+                <CardContent>
+                  <Typography variant="subtitle2" sx={{ mb: 2 }}>
+                    Manga reads
+                  </Typography>
+                  <Stack spacing={2}>
+                    {categoryCards.map((item) => (
+                      <Stack key={item.id} direction="row" spacing={2}>
+                        <Box
+                          component="img"
+                          src={item.image}
+                          alt={item.title}
+                          sx={{ width: 72, height: 72, borderRadius: 1.5, objectFit: 'cover' }}
+                        />
+                        <Stack spacing={0.5}>
+                          <Typography variant="subtitle2">{item.title}</Typography>
+                          <Typography variant="body2" color="text.secondary">
+                            {item.description}
+                          </Typography>
+                          <Typography variant="caption" color="text.secondary">
+                            {item.date}
+                          </Typography>
+                        </Stack>
+                      </Stack>
+                    ))}
+                  </Stack>
+                </CardContent>
+              </Card>
+            </Grid>
           </Grid>
         </Container>
       </Box>
 
       <Box
         sx={(theme) => ({
+          px: { xs: 2, md: 4 },
           py: { xs: 6, md: 8 },
           bgcolor: alpha(theme.palette.common.black, 0.85),
           color: 'common.white',
         })}
       >
-        <Container maxWidth="md">
+        <Container maxWidth="md" disableGutters>
           <Stack spacing={3} alignItems="center" textAlign="center">
             <Typography variant="h3">Sign up for our newsletters</Typography>
             <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>

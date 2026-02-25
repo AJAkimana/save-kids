@@ -28,6 +28,27 @@ export type CategorySpotlight = {
   meta: string
 }
 
+export type CategoryTab = {
+  id: string
+  label: string
+}
+
+export type CategoryFeature = {
+  title: string
+  description: string
+  image: string
+  meta: string
+  cta: string
+}
+
+export type CategoryItem = {
+  id: string
+  title: string
+  image: string
+  date: string
+  description?: string
+}
+
 export const navigation: NavLink[] = [
   { label: 'Destinations', href: '#' },
   { label: 'Food', href: '#' },
@@ -151,32 +172,91 @@ export const destinations: Destination[] = [
     image:
       'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=80',
   },
-]
-
-export const categorySpotlights: CategorySpotlight[] = [
   {
-    id: 'cat-1',
-    title: 'Category name',
-    description: 'Top destinations for your next trip.',
-    image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80',
-    meta: 'New post',
-  },
-  {
-    id: 'cat-2',
-    title: 'Where to Eat',
-    description: 'Must-try dishes in 2026.',
-    image:
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80',
-    meta: 'Travel guide',
-  },
-  {
-    id: 'cat-3',
-    title: 'Range walks',
-    description: 'Slow travel itineraries and trails.',
+    id: 'dest-5',
+    name: 'Andes Road',
     image:
       'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80',
-    meta: 'Featured',
+  },
+]
+
+export const categoryTabs: CategoryTab[] = [
+  { id: 'tab-1', label: 'Category name' },
+  { id: 'tab-2', label: 'Category name' },
+  { id: 'tab-3', label: 'Category name' },
+  { id: 'tab-4', label: 'Category name' },
+  { id: 'tab-5', label: 'Category name' },
+  { id: 'tab-6', label: 'Category name' },
+]
+
+export const categoryFeature: CategoryFeature = {
+  title: 'Tick one more destination off of your bucket list in 2022',
+  description:
+    'Phasellus aliquet nibh id lacus pharetra. Maecenas eleifend sed ex. Donec quis magna sed felis eleifend blandit nec quis sem.',
+  image:
+    'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
+  meta: '1 Month Ago',
+  cta: 'View Post',
+}
+
+export const categoryList: CategoryItem[] = [
+  {
+    id: 'cat-list-1',
+    title: 'Akame Ga Kill: Season finale',
+    image:
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+  },
+  {
+    id: 'cat-list-2',
+    title: 'Naruto Uzumaki: Hidden Village',
+    image:
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+  },
+  {
+    id: 'cat-list-3',
+    title: 'Love juice Season Premiere',
+    image:
+      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+  },
+  {
+    id: 'cat-list-4',
+    title: 'Love juice Season Premiere',
+    image:
+      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+  },
+]
+
+export const categoryCards: CategoryItem[] = [
+  {
+    id: 'cat-card-1',
+    title: 'Tick one more destination off of your bucket list in 2022',
+    image:
+      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+    description:
+      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
+  },
+  {
+    id: 'cat-card-2',
+    title: 'Tick one more destination off of your bucket list in 2022',
+    image:
+      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+    description:
+      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
+  },
+  {
+    id: 'cat-card-3',
+    title: 'Tick one more destination off of your bucket list in 2022',
+    image:
+      'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2021',
+    description:
+      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
   },
 ]
 
