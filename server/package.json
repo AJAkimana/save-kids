@@ -1,0 +1,10 @@
+{
+  "name": "server",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "echo \"server not set up yet\"",
+    "build": "echo \"server not set up yet\"",
+    "start": "echo \"server not set up yet\""
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "blog-dan",
+  "private": true,
+  "version": "0.0.0",
+  "workspaces": [
+    "client",
+    "server"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:client\" \"npm:dev:server\"",
+    "dev:client": "npm --workspace client run dev",
+    "dev:server": "npm --workspace server run dev",
+    "build": "npm --workspace client run build && npm --workspace server run build",
+    "lint": "npm --workspace client run lint",
+    "format": "npm --workspace client run format"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
