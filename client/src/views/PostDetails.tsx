@@ -27,8 +27,6 @@ import {
   YouTube,
 } from '@mui/icons-material'
 import { Link as RouterLink, useParams } from 'react-router-dom'
-import AppFooter from '../components/layouts/AppFooter'
-import AppNavbar from '../components/layouts/AppNavbar'
 import { posts } from '../mock/home'
 
 const socialIcons = [
@@ -58,9 +56,7 @@ function PostDetails() {
   const relatedPosts = posts.filter((item) => item.id !== post.id).slice(0, 6)
 
   return (
-    <Box sx={{ bgcolor: 'background.default' }}>
-      <AppNavbar />
-
+    <Box>
       <Box
         sx={(theme) => ({
           position: 'relative',
@@ -358,7 +354,6 @@ function PostDetails() {
           </Stack>
         </Container>
       </Box>
-      <AppFooter />
     </Box>
   )
 }

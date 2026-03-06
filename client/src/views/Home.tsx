@@ -15,8 +15,6 @@ import {
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import { Link as RouterLink } from 'react-router-dom'
-import AppFooter from '../components/layouts/AppFooter'
-import AppNavbar from '../components/layouts/AppNavbar'
 import {
   categoryCards,
   categoryFeature,
@@ -87,9 +85,7 @@ const PostCardItem = ({ post }: { post: (typeof posts)[number] }) => (
 
 function Home() {
   return (
-    <Box sx={{ bgcolor: 'background.default' }}>
-      <AppNavbar />
-
+    <Box>
       <Box
         sx={(theme) => ({
           position: 'relative',
@@ -307,8 +303,6 @@ function Home() {
           </Grid>
         </Container>
       </Box>
-
-      <AppFooter />
     </Box>
   )
 }
