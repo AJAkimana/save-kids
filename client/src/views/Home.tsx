@@ -327,9 +327,6 @@ function Home() {
                         />
                         <Stack spacing={0.5}>
                           <Typography variant="subtitle2">{item.title}</Typography>
-                          <Typography variant="body2" color="text.secondary">
-                            {item.description}
-                          </Typography>
                           <Typography variant="caption" color="text.secondary">
                             {item.date}
                           </Typography>
