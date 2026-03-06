@@ -1,5 +1,4 @@
 import {
-  AppBar,
   Avatar,
   Box,
   Button,
@@ -10,16 +9,14 @@ import {
   Container,
   Divider,
   Grid,
-  IconButton,
   Link,
   Stack,
-  TextField,
-  Toolbar,
   Typography,
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
-import { Facebook, Instagram, Pinterest, Search, Twitter, YouTube } from '@mui/icons-material'
 import { Link as RouterLink } from 'react-router-dom'
+import AppFooter from '../components/layouts/AppFooter'
+import AppNavbar from '../components/layouts/AppNavbar'
 import {
   categoryCards,
   categoryFeature,
@@ -27,19 +24,9 @@ import {
   categoryTabs,
   destinations,
   featured,
-  footer,
   hero,
-  navigation,
   posts,
 } from '../mock/home'
-
-const socialIcons = {
-  Instagram: <Instagram fontSize="small" />,
-  Pinterest: <Pinterest fontSize="small" />,
-  Twitter: <Twitter fontSize="small" />,
-  Facebook: <Facebook fontSize="small" />,
-  YouTube: <YouTube fontSize="small" />,
-}
 
 const SectionTitle = ({ title, subtitle }: { title: string; subtitle?: string }) => (
   <Stack spacing={1} sx={{ mb: 4 }}>
@@ -101,28 +88,7 @@ const PostCardItem = ({ post }: { post: (typeof posts)[number] }) => (
 function Home() {
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
-      <AppBar position="sticky">
-        <Toolbar sx={{ gap: 3, py: 1.5 }}>
-          <Typography variant="h6" sx={{ fontFamily: 'Playfair Display, serif', flex: 1 }}>
-            Inspiration by traveler
-          </Typography>
-          <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' } }}>
-            {navigation.map((item) => (
-              <Link key={item.label} href={item.href} color="text.primary" underline="none">
-                {item.label}
-              </Link>
-            ))}
-          </Stack>
-          <Stack direction="row" spacing={1} alignItems="center">
-            <IconButton aria-label="search">
-              <Search fontSize="small" />
-            </IconButton>
-            <Button variant="contained" color="primary" size="small">
-              Get free theme
-            </Button>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+      <AppNavbar />
 
       <Box
         sx={(theme) => ({
@@ -342,63 +308,7 @@ function Home() {
         </Container>
       </Box>
 
-      <Box
-        sx={(theme) => ({
-          px: { xs: 2, md: 4 },
-          py: { xs: 6, md: 8 },
-          bgcolor: alpha(theme.palette.common.black, 0.85),
-          color: 'common.white',
-        })}
-      >
-        <Container maxWidth="md" disableGutters>
-          <Stack spacing={3} alignItems="center" textAlign="center">
-            <Typography variant="h3">Sign up for our newsletters</Typography>
-            <Typography variant="body2" sx={{ color: 'rgba(255, 255, 255, 0.7)' }}>
-              Get notified of the best deals and curated travel stories each week.
-            </Typography>
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} sx={{ width: '100%' }}>
-              <TextField
-                fullWidth
-                placeholder="Enter your email"
-                variant="outlined"
-                size="small"
-                sx={{
-                  input: { color: 'common.white' },
-                  '& .MuiOutlinedInput-root': {
-                    bgcolor: alpha('#fff', 0.08),
-                    '& fieldset': { borderColor: alpha('#fff', 0.3) },
-                  },
-                }}
-              />
-              <Button variant="contained" color="secondary">
-                Subscribe
-              </Button>
-            </Stack>
-          </Stack>
-        </Container>
-      </Box>
-
-      <Box sx={{ py: 4, bgcolor: 'common.black', color: 'common.white' }}>
-        <Container maxWidth="lg">
-          <Stack
-            direction={{ xs: 'column', md: 'row' }}
-            spacing={2}
-            alignItems={{ xs: 'flex-start', md: 'center' }}
-            justifyContent="space-between"
-          >
-            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-              {footer.note}
-            </Typography>
-            <Stack direction="row" spacing={1}>
-              {footer.socials.map((social) => (
-                <IconButton key={social.label} color="inherit" size="small" href={social.href}>
-                  {socialIcons[social.label as keyof typeof socialIcons]}
-                </IconButton>
-              ))}
-            </Stack>
-          </Stack>
-        </Container>
-      </Box>
+      <AppFooter />
     </Box>
   )
 }

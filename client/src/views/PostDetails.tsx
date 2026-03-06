@@ -1,5 +1,4 @@
 import {
-  AppBar,
   Avatar,
   Box,
   Button,
@@ -14,13 +13,11 @@ import {
   Link,
   Stack,
   TextField,
-  Toolbar,
   Typography,
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import {
   AccessTime,
-  ArrowBack,
   BookmarkBorder,
   Facebook,
   Instagram,
@@ -30,6 +27,8 @@ import {
   YouTube,
 } from '@mui/icons-material'
 import { Link as RouterLink, useParams } from 'react-router-dom'
+import AppFooter from '../components/layouts/AppFooter'
+import AppNavbar from '../components/layouts/AppNavbar'
 import { posts } from '../mock/home'
 
 const socialIcons = [
@@ -60,27 +59,7 @@ function PostDetails() {
 
   return (
     <Box sx={{ bgcolor: 'background.default' }}>
-      <AppBar position="sticky">
-        <Toolbar sx={{ gap: 3, py: 1.5 }}>
-          <Link component={RouterLink} to="/" underline="none" color="text.primary">
-            <Stack direction="row" spacing={1} alignItems="center">
-              <ArrowBack fontSize="small" />
-              <Typography variant="caption" sx={{ letterSpacing: 1.2, textTransform: 'uppercase' }}>
-                Back to home
-              </Typography>
-            </Stack>
-          </Link>
-          <Box sx={{ flex: 1 }} />
-          <Stack direction="row" spacing={1} alignItems="center">
-            <IconButton aria-label="bookmark">
-              <BookmarkBorder fontSize="small" />
-            </IconButton>
-            <Button variant="contained" color="primary" size="small">
-              Subscribe
-            </Button>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+      <AppNavbar />
 
       <Box
         sx={(theme) => ({
@@ -379,6 +358,7 @@ function PostDetails() {
           </Stack>
         </Container>
       </Box>
+      <AppFooter />
     </Box>
   )
 }
