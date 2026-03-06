@@ -19,6 +19,7 @@ import {
 } from '@mui/material'
 import { alpha } from '@mui/material/styles'
 import { Facebook, Instagram, Pinterest, Search, Twitter, YouTube } from '@mui/icons-material'
+import { Link as RouterLink } from 'react-router-dom'
 import {
   categoryCards,
   categoryFeature,
@@ -89,7 +90,7 @@ const PostCardItem = ({ post }: { post: (typeof posts)[number] }) => (
             {post.readTime}
           </Typography>
         </Stack>
-        <Link href="#" underline="none" color="primary">
+        <Link component={RouterLink} to={`/view/${post.id}`} underline="none" color="primary">
           View Post
         </Link>
       </Stack>

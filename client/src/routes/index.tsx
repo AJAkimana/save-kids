@@ -8,6 +8,7 @@ const userRoutes = [
   { path: '/', element: <Home /> },
   { path: '/category/:categoryId', element: <Category /> },
   { path: '/post/:postId', element: <PostDetails /> },
+  { path: '/view/:postId', element: <PostDetails /> },
 ] as const
 
 function AppRoutes() {
