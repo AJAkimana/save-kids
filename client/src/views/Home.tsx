@@ -183,7 +183,7 @@ function Home() {
       <Box sx={{ px: { xs: 2, md: 4 }, pb: { xs: 6, md: 10 } }}>
         <Container maxWidth="lg" disableGutters>
           <SectionTitle
-            title="Top destinations"
+            title="Gallery"
             subtitle="Handpicked escapes with cinematic views and calm itineraries."
           />
           <Box

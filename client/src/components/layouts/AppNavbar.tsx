@@ -9,12 +9,18 @@ function AppNavbar() {
       <Toolbar sx={{ gap: 3, py: 1.5 }}>
         <Link component={RouterLink} to="/" underline="none" color="text.primary">
           <Typography variant="h6" sx={{ fontFamily: 'Playfair Display, serif' }}>
-            Inspiration by traveler
+            Chain Of Support
           </Typography>
         </Link>
         <Stack direction="row" spacing={2} sx={{ display: { xs: 'none', md: 'flex' }, flex: 1 }}>
           {navigation.map((item) => (
-            <Link key={item.label} href={item.href} color="text.primary" underline="none">
+            <Link
+              key={item.label}
+              component={RouterLink}
+              to={item.href}
+              color="text.primary"
+              underline="none"
+            >
               {item.label}
             </Link>
           ))}
@@ -24,7 +30,7 @@ function AppNavbar() {
             <Search fontSize="small" />
           </IconButton>
           <Button variant="contained" color="primary" size="small">
-            Get free theme
+            Donate
           </Button>
         </Stack>
       </Toolbar>

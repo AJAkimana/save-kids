@@ -50,218 +50,222 @@ export type CategoryItem = {
 }
 
 export const navigation: NavLink[] = [
-  { label: 'Destinations', href: '#' },
-  { label: 'Food', href: '#' },
-  { label: 'Well Being', href: '#' },
-  { label: 'Sport', href: '#' },
-  { label: 'Lifestyle', href: '#' },
+  { label: 'Education', href: '#' },
+  { label: 'Health', href: '#' },
+  { label: 'Nutrition', href: '#' },
+  { label: 'Safe Play', href: '#' },
+  { label: 'Community', href: '#' },
 ]
 
 export const hero = {
-  kicker: 'Inspiration by traveler',
-  title: 'Inspiration for travel by real people',
-  subtitle: 'Book smart, travel simple',
-  primaryCta: 'Start planning your trip',
-  secondaryCta: 'View latest posts',
+  kicker: 'Every child deserves a strong start',
+  title: 'Practical ways to improve children life in every community',
+  subtitle: 'Education, health, and safe spaces that help kids grow with confidence',
+  primaryCta: 'Explore impact stories',
+  secondaryCta: 'See the latest updates',
   image:
-    'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1600&q=80',
+    'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80',
 }
 
 export const posts: PostCard[] = [
   {
     id: 'post-1',
-    title: 'Integer Maecenas Eget Viverra',
+    title: 'After-school tutoring that lifts reading levels in 12 weeks',
     excerpt:
-      'Donec ornare orci quis neque sodales, nec pulvinar nulla finibus. Duis at lorem lorem.',
+      'Volunteer mentors and small-group sessions help children catch up in reading and build a love for books.',
     image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
+    author: 'Amina Okoro',
     date: 'Jun 28, 2026',
     readTime: '5 min read',
-    category: 'Amazon Redwiel',
+    category: 'Education',
   },
   {
     id: 'post-2',
-    title: 'Aenean eleifend ante maecenas',
+    title: 'Healthy breakfast clubs that improve focus and attendance',
     excerpt:
-      'Praesent eleifend ipsum vel risus finibus, in dapibus velit vehicula. Curabitur blandit.',
+      'A simple morning meal keeps kids energized and ready to learn, while families save on food costs.',
     image:
-      'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=1200&q=80',
+    author: 'Miguel Santos',
     date: 'Jun 26, 2026',
     readTime: '4 min read',
-    category: 'Amazon Redwiel',
+    category: 'Nutrition',
   },
   {
     id: 'post-3',
-    title: 'Integer Maecenas Eget Viverra',
-    excerpt: 'Vivamus feugiat, magna vel egestas fermentum, sapien justo viverra est, at luctus.',
+    title: 'Mobile clinics bring checkups closer to remote families',
+    excerpt:
+      'Regular screenings and vaccinations reduce preventable illness and keep children in school.',
     image:
-      'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1200&q=80',
+    author: 'Leila Hassan',
     date: 'Jun 24, 2026',
     readTime: '6 min read',
-    category: 'Amazon Redwiel',
+    category: 'Health',
   },
   {
     id: 'post-4',
-    title: 'Integer Maecenas Eget Viverra',
-    excerpt: 'Sed volutpat efficitur metus, in faucibus justo imperdiet in. Suspendisse potenti.',
+    title: 'Safe play zones that help kids grow social skills',
+    excerpt:
+      'Community-built playgrounds create safe places for play, teamwork, and emotional growth.',
     image:
-      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=1200&q=80',
+    author: 'Nia Carter',
     date: 'Jun 21, 2026',
     readTime: '5 min read',
-    category: 'Amazon Redwiel',
+    category: 'Safe Play',
   },
   {
     id: 'post-5',
-    title: 'Aenean eleifend ante maecenas',
-    excerpt: 'Ut at lectus a mauris fermentum tincidunt. Etiam id nibh ut urna blandit cursus.',
+    title: 'Life skills clubs that teach confidence and leadership',
+    excerpt:
+      'Kids learn to set goals, work in teams, and speak up for themselves through weekly workshops.',
     image:
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80',
+    author: 'Samir Patel',
     date: 'Jun 18, 2026',
     readTime: '7 min read',
-    category: 'Amazon Redwiel',
+    category: 'Community',
   },
   {
     id: 'post-6',
-    title: 'Integer Maecenas Eget Viverra',
-    excerpt: 'Morbi ac mi non turpis aliquet mollis. Sed suscipit neque vel nunc porta iaculis.',
+    title: 'Libraries on wheels bring books to every neighborhood',
+    excerpt:
+      'Pop-up libraries and reading corners make learning materials available to children who need them most.',
     image:
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1200&q=80',
-    author: 'Jeanne Wisk',
+      'https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=1200&q=80',
+    author: 'Hannah Lee',
     date: 'Jun 16, 2026',
     readTime: '3 min read',
-    category: 'Amazon Redwiel',
+    category: 'Education',
   },
 ]
 
 export const featured = {
-  title: 'Richard Norton photorealistic rendering as real photos',
+  title: 'A community blueprint for helping children grow stronger',
   subtitle:
-    'A curation of cinematic landscapes and traveler stories that feel like postcards from another world.',
-  cta: 'Start planning your trip',
+    'Stories and practical guides that show how education, health care, and safe spaces change lives.',
+  cta: 'Read the full story',
   image:
-    'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80',
+    'https://images.unsplash.com/photo-1504151932400-72d4384f04b3?auto=format&fit=crop&w=1600&q=80',
 }
 
 export const destinations: Destination[] = [
   {
     id: 'dest-1',
-    name: 'Dominican Republic',
+    name: 'Community Learning Hubs',
     image:
-      'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'dest-2',
-    name: 'Marrakesh',
+    name: 'Health Outreach Days',
     image:
-      'https://images.unsplash.com/photo-1490578474895-699cd4e2cf59?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1505751172876-fa1923c5c528?auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'dest-3',
-    name: 'Alaskan Coast',
+    name: 'Nutrition Programs',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'dest-4',
-    name: 'Iceland',
+    name: 'Safe Play Zones',
     image:
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=1000&q=80',
   },
   {
     id: 'dest-5',
-    name: 'Andes Road',
+    name: 'Family Support Circles',
     image:
-      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80',
+      'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=1000&q=80',
   },
 ]
 
 export const categoryTabs: CategoryTab[] = [
-  { id: 'tab-1', label: 'Category name' },
-  { id: 'tab-2', label: 'Category name' },
-  { id: 'tab-3', label: 'Category name' },
-  { id: 'tab-4', label: 'Category name' },
-  { id: 'tab-5', label: 'Category name' },
-  { id: 'tab-6', label: 'Category name' },
+  { id: 'tab-1', label: 'Education' },
+  { id: 'tab-2', label: 'Health' },
+  { id: 'tab-3', label: 'Nutrition' },
+  { id: 'tab-4', label: 'Safe Play' },
+  { id: 'tab-5', label: 'Protection' },
+  { id: 'tab-6', label: 'Family Support' },
 ]
 
 export const categoryFeature: CategoryFeature = {
-  title: 'Tick one more destination off of your bucket list in 2022',
+  title: 'Open a child-friendly learning space in 30 days',
   description:
-    'Phasellus aliquet nibh id lacus pharetra. Maecenas eleifend sed ex. Donec quis magna sed felis eleifend blandit nec quis sem.',
+    'A practical guide for communities to set up safe learning corners with books, mentors, and after-school activities.',
   image:
-    'https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1200&q=80',
-  meta: '1 Month Ago',
-  cta: 'View Post',
+    'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1200&q=80',
+  meta: '1 month ago',
+  cta: 'View guide',
 }
 
 export const categoryList: CategoryItem[] = [
   {
     id: 'cat-list-1',
-    title: 'Akame Ga Kill: Season finale',
+    title: 'How reading circles build confidence',
     image:
-      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80',
+    date: '21 March 2026',
   },
   {
     id: 'cat-list-2',
-    title: 'Naruto Uzumaki: Hidden Village',
+    title: 'Healthy habits for school-age children',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=600&q=80',
+    date: '18 March 2026',
   },
   {
     id: 'cat-list-3',
-    title: 'Love juice Season Premiere',
+    title: 'Why safe play matters for development',
     image:
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=600&q=80',
+    date: '14 March 2026',
   },
   {
     id: 'cat-list-4',
-    title: 'Love juice Season Premiere',
+    title: 'Parents groups that strengthen support networks',
     image:
-      'https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1491438590914-bc09fcaaf77a?auto=format&fit=crop&w=600&q=80',
+    date: '10 March 2026',
   },
 ]
 
 export const categoryCards: CategoryItem[] = [
   {
     id: 'cat-card-1',
-    title: 'Tick one more destination off of your bucket list in 2022',
+    title: 'Build a safe route-to-school program',
     image:
-      'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=600&q=80',
+    date: '9 March 2026',
     description:
-      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
+      'Organize walking groups, crossing guards, and awareness campaigns to keep children safe on the way to class.',
   },
   {
     id: 'cat-card-2',
-    title: 'Tick one more destination off of your bucket list in 2022',
+    title: 'Nutrition boxes that support growing minds',
     image:
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1494390248081-4e521a5940db?auto=format&fit=crop&w=600&q=80',
+    date: '5 March 2026',
     description:
-      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
+      'Weekly food packs with local produce help families maintain balanced meals for children.',
   },
   {
     id: 'cat-card-3',
-    title: 'Tick one more destination off of your bucket list in 2022',
+    title: 'Training youth mentors who inspire younger kids',
     image:
-      'https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?auto=format&fit=crop&w=600&q=80',
-    date: '21 March 2021',
+      'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=600&q=80',
+    date: '1 March 2026',
     description:
-      'Tick one more destination off of your bucket list with one of our most popular vacations in 2022',
+      'Peer mentorship creates role models and keeps students engaged in school and community programs.',
   },
 ]
 
 export const footer = {
-  note: 'Designed & Developed by PEBSON',
+  note: 'Designed & Developed for Child Thrive Initiative',
   socials: [
     { label: 'Instagram', href: '#' },
     { label: 'Pinterest', href: '#' },

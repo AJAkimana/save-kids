@@ -38,16 +38,16 @@ const socialIcons = [
 ]
 
 const tableOfContents = [
-  'Design a work ritual',
-  'Build a low-friction desk',
-  'Create a focus runway',
-  'Schedule a reset window',
+  'Map the local needs',
+  'Build safe learning spaces',
+  'Strengthen family support',
+  'Measure child growth',
 ]
 
 const highlights = [
-  'Keep a single tray for daily tools.',
-  'Replace visual clutter with a single anchor object.',
-  'Work in 45-minute waves, then reset your surface.',
+  'Start with listening sessions for families and teachers.',
+  'Prioritize safety, lighting, and accessibility for every child.',
+  'Track small wins like attendance, confidence, and reading levels.',
 ]
 
 function PostDetails() {
@@ -80,11 +80,11 @@ function PostDetails() {
             />
             <Typography variant="h1">{post.title}</Typography>
             <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              The rituals, tools, and tiny resets that make creative work feel lighter.
+              Real-world strategies that help children learn, stay healthy, and grow with support.
             </Typography>
             <Stack direction="row" spacing={2} alignItems="center" flexWrap="wrap">
               <Stack direction="row" spacing={1} alignItems="center">
-                <Avatar sx={{ width: 32, height: 32 }}>J</Avatar>
+                <Avatar sx={{ width: 32, height: 32 }}>{post.author.slice(0, 1)}</Avatar>
                 <Typography variant="body2">{post.author}</Typography>
               </Stack>
               <Divider
@@ -117,8 +117,8 @@ function PostDetails() {
                     Article overview
                   </Typography>
                   <Typography variant="body1">
-                    This story maps a calm workflow, mixing tactile anchors with a few deliberate
-                    breaks. A desk can be a ritual, not a trap.
+                    This story highlights practical steps communities can take to create safer,
+                    healthier, and more empowering experiences for children.
                   </Typography>
                 </Card>
 
@@ -137,15 +137,14 @@ function PostDetails() {
                       },
                     }}
                   >
-                    The best workspaces feel curated, not crowded. The goal is not to minimize
-                    everything, but to select a few intentional objects that lower friction. Think
-                    of it as a runway for focus: everything in place, every item in service of the
-                    next task.
+                    The most effective child-focused programs feel caring, not complicated. The goal
+                    is to remove barriers so children can learn, play, and feel secure. Start with
+                    small, dependable routines that build trust and momentum.
                   </Typography>
                   <Typography variant="body1">
-                    Start by giving each tool a home. A single tray for daily essentials, a narrow
-                    shelf for reference books, and a compact charging station keep your desk from
-                    swelling into chaos.
+                    Begin with what families need most: safe spaces, basic health support, and a
+                    reliable place to learn. A few consistent services can change a child's daily
+                    experience.
                   </Typography>
                 </Stack>
 
@@ -159,24 +158,23 @@ function PostDetails() {
                 >
                   <Stack spacing={1}>
                     <Typography variant="h4">
-                      "Make it easy to begin. The rest will follow."
+                      "When children feel safe and seen, they are ready to grow."
                     </Typography>
                     <Typography variant="caption" color="text.secondary">
-                      Jeanne Wisk, editor in chief
+                      Grace Njeri, program director
                     </Typography>
                   </Stack>
                 </Card>
 
                 <Stack spacing={2}>
-                  <Typography variant="h3">Design the ritual</Typography>
+                  <Typography variant="h3">Start with safety and trust</Typography>
                   <Typography variant="body1">
-                    The first ten minutes decide the shape of your day. Rituals compress the
-                    distance between intention and momentum. A warm drink, a short playlist, and a
-                    single open notebook are enough to signal that it is time to create.
+                    Consistent check-ins with caregivers and teachers make programs sustainable.
+                    Small, predictable routines help children feel secure and ready to learn.
                   </Typography>
                   <Typography variant="body1">
-                    Pair that ritual with a reset window. Every 45 minutes, clear the surface and
-                    close the task. Those micro resets stop the clutter from multiplying.
+                    Pair learning with simple wellness habits like hydration breaks, movement, and
+                    clean spaces. These micro supports add up to real progress.
                   </Typography>
                 </Stack>
 
@@ -191,24 +189,23 @@ function PostDetails() {
                     <CardMedia
                       component="img"
                       height="240"
-                      image="https://images.unsplash.com/photo-1489515217757-5fd1be406fef?auto=format&fit=crop&w=1000&q=80"
+                      image="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80"
                     />
                   </Card>
                   <Card>
                     <CardMedia
                       component="img"
                       height="240"
-                      image="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1000&q=80"
+                      image="https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=1000&q=80"
                     />
                   </Card>
                 </Box>
 
                 <Stack spacing={2}>
-                  <Typography variant="h3">Build a low-friction desk</Typography>
+                  <Typography variant="h3">Build a low-barrier pathway</Typography>
                   <Typography variant="body1">
-                    Keep the essentials within reach. Everything else moves to the edges. Use
-                    lighting that shifts from morning to evening, and keep a single "anchor" object
-                    on the desk to hold the eye.
+                    Keep support services close to where children live and learn. Combine tutoring,
+                    health checkups, and nutrition in one predictable weekly rhythm.
                   </Typography>
                   <Box component="ul" sx={{ m: 0, pl: 3, color: 'text.secondary' }}>
                     {highlights.map((item) => (
@@ -223,7 +220,7 @@ function PostDetails() {
 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center">
                   <Stack direction="row" spacing={1} flexWrap="wrap">
-                    {['Workflow', 'Mindset', 'Minimalism', 'Studio'].map((tag) => (
+                    {['Education', 'Health', 'Nutrition', 'Community'].map((tag) => (
                       <Chip key={tag} label={tag} size="small" />
                     ))}
                   </Stack>
@@ -275,7 +272,7 @@ function PostDetails() {
                   <Stack spacing={1}>
                     <Typography variant="h4">Newsletter</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Get weekly prompts, layouts, and creative rituals.
+                      Get weekly stories, tools, and ways to support children.
                     </Typography>
                     <TextField fullWidth size="small" placeholder="Enter your email" />
                     <Button variant="contained">Subscribe</Button>
@@ -310,9 +307,9 @@ function PostDetails() {
                     <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                       About the author
                     </Typography>
-                    <Typography variant="h4">Jeanne Wisk</Typography>
+                    <Typography variant="h4">Grace Njeri</Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                      Editor with a soft spot for ritual, light, and quiet corners.
+                      Program director focused on child wellbeing, education, and community care.
                     </Typography>
                   </Stack>
                 </Card>
@@ -328,7 +325,7 @@ function PostDetails() {
             <Stack spacing={1}>
               <Typography variant="h2">You may also like</Typography>
               <Typography variant="body2" color="text.secondary">
-                More stories with calming rituals and thoughtful spaces.
+                More stories about education, health, and safe spaces for children.
               </Typography>
             </Stack>
             <Grid container spacing={3}>
