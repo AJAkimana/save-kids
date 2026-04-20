@@ -5,12 +5,19 @@ import Home from '../views/Home'
 import Category from '../views/Category'
 import PostDetails from '../views/PostDetails'
 import NotFound from '../views/NotFound'
+import PostEdit from '../views/admin/PostEdit'
 
 const userRoutes = [
-  { path: '/', element: <Home /> },
+  { path: '', element: <Home /> },
   { path: '/category/:categoryId', element: <Category /> },
   { path: '/post/:postId', element: <PostDetails /> },
   { path: '/view/:postId', element: <PostDetails /> },
+] as const
+
+const adminRoutes = [
+  { path: '', element: <AdminLayout /> },
+  { path: 'post/create', element: <PostEdit /> },
+  { path: 'post/edit/:postId', element: <PostEdit /> },
 ] as const
 
 function AppRoutes() {
@@ -23,6 +30,9 @@ function AppRoutes() {
         <Route path="*" element={<NotFound />} />
       </Route>
       <Route path="/admin" element={<AdminLayout />}>
+        {adminRoutes.map((route) => (
+          <Route key={route.path} path={route.path} element={route.element} />
+        ))}
         <Route path="*" element={<NotFound />} />
       </Route>
     </Routes>
