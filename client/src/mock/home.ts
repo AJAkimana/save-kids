@@ -12,6 +12,61 @@ export type PostCard = {
   date: string
   readTime: string
   category: string
+  details: PostDetailsContent
+}
+
+export type PostDetailsContent = {
+  heroSubtitle: string
+  overview: {
+    title: string
+    bodyHtml: string
+  }
+  lead: string
+  introHtml: string
+  quote: {
+    text: string
+    author: string
+  }
+  sectionOne: {
+    title: string
+    bodyHtml: string
+  }
+  gallery: Array<{
+    image: string
+    alt: string
+  }>
+  sectionTwo: {
+    title: string
+    bodyHtml: string
+    highlights: string[]
+  }
+  tags: string[]
+  toc: string[]
+  tocTitle: string
+  social: Array<{
+    label: string
+    href?: string
+  }>
+  socialTitle: string
+  newsletter: {
+    title: string
+    description: string
+    placeholder: string
+    buttonLabel: string
+  }
+  author: {
+    name: string
+    role: string
+    bio: string
+  }
+  authorTitle: string
+  latestHeading: string
+  richContentHtml: string
+  related: {
+    title: string
+    subtitle: string
+  }
+  relatedCtaLabel: string
 }
 
 export type Destination = {
@@ -67,6 +122,81 @@ export const hero = {
     'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1600&q=80',
 }
 
+const baseDetails: PostDetailsContent = {
+  heroSubtitle: 'Real-world strategies that help children learn, stay healthy, and grow with support.',
+  overview: {
+    title: 'Article overview',
+    bodyHtml:
+      '<p>This story highlights practical steps communities can take to create safer, healthier, and more empowering experiences for children.</p>',
+  },
+  lead:
+    'The most effective child-focused programs feel caring, not complicated. The goal is to remove barriers so children can learn, play, and feel secure.',
+  introHtml:
+    '<p>Start with small, dependable routines that build trust and momentum.</p><p>Begin with what families need most: safe spaces, basic health support, and a reliable place to learn.</p>',
+  quote: {
+    text: '"When children feel safe and seen, they are ready to grow."',
+    author: 'Grace Njeri, program director',
+  },
+  sectionOne: {
+    title: 'Start with safety and trust',
+    bodyHtml:
+      '<p>Consistent check-ins with caregivers and teachers make programs sustainable.</p><p>Small, predictable routines help children feel secure and ready to learn.</p>',
+  },
+  gallery: [
+    {
+      image:
+        'https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Students learning together',
+    },
+    {
+      image:
+        'https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=1000&q=80',
+      alt: 'Kids playing outside',
+    },
+  ],
+  sectionTwo: {
+    title: 'Build a low-barrier pathway',
+    bodyHtml:
+      '<p>Keep support services close to where children live and learn. Combine tutoring, health checkups, and nutrition in one predictable weekly rhythm.</p>',
+    highlights: [
+      'Start with listening sessions for families and teachers.',
+      'Prioritize safety, lighting, and accessibility for every child.',
+      'Track small wins like attendance, confidence, and reading levels.',
+    ],
+  },
+  tags: ['Education', 'Health', 'Nutrition', 'Community'],
+  toc: ['Map the local needs', 'Build safe learning spaces', 'Strengthen family support', 'Measure child growth'],
+  tocTitle: 'Table of contents',
+  social: [
+    { label: 'Instagram' },
+    { label: 'Pinterest' },
+    { label: 'Twitter' },
+    { label: 'Facebook' },
+    { label: 'YouTube' },
+  ],
+  socialTitle: 'Follow us',
+  newsletter: {
+    title: 'Newsletter',
+    description: 'Get weekly stories, tools, and ways to support children.',
+    placeholder: 'Enter your email',
+    buttonLabel: 'Subscribe',
+  },
+  author: {
+    name: 'Grace Njeri',
+    role: 'Program director',
+    bio: 'Focused on child wellbeing, education, and community care.',
+  },
+  authorTitle: 'About the author',
+  latestHeading: 'The latest',
+  richContentHtml:
+    '<h3>Measure progress with care</h3><p>Track attendance, reading levels, and small confidence gains so families can see the impact. Share progress openly to strengthen trust.</p><ul><li>Create a simple monthly scorecard.</li><li>Celebrate quick wins and course-correct early.</li><li>Invite caregivers into review sessions.</li></ul>',
+  related: {
+    title: 'You may also like',
+    subtitle: 'More stories about education, health, and safe spaces for children.',
+  },
+  relatedCtaLabel: 'View Post',
+}
+
 export const posts: PostCard[] = [
   {
     id: 'post-1',
@@ -79,6 +209,11 @@ export const posts: PostCard[] = [
     date: 'Jun 28, 2026',
     readTime: '5 min read',
     category: 'Education',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'Volunteer mentors and small-group sessions help children catch up in reading and build a love for books.',
+    },
   },
   {
     id: 'post-2',
@@ -91,6 +226,11 @@ export const posts: PostCard[] = [
     date: 'Jun 26, 2026',
     readTime: '4 min read',
     category: 'Nutrition',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'A simple morning meal keeps kids energized and ready to learn, while families save on food costs.',
+    },
   },
   {
     id: 'post-3',
@@ -103,6 +243,11 @@ export const posts: PostCard[] = [
     date: 'Jun 24, 2026',
     readTime: '6 min read',
     category: 'Health',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'Regular screenings and vaccinations reduce preventable illness and keep children in school.',
+    },
   },
   {
     id: 'post-4',
@@ -115,6 +260,11 @@ export const posts: PostCard[] = [
     date: 'Jun 21, 2026',
     readTime: '5 min read',
     category: 'Safe Play',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'Community-built playgrounds create safe places for play, teamwork, and emotional growth.',
+    },
   },
   {
     id: 'post-5',
@@ -127,6 +277,11 @@ export const posts: PostCard[] = [
     date: 'Jun 18, 2026',
     readTime: '7 min read',
     category: 'Community',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'Kids learn to set goals, work in teams, and speak up for themselves through weekly workshops.',
+    },
   },
   {
     id: 'post-6',
@@ -139,8 +294,14 @@ export const posts: PostCard[] = [
     date: 'Jun 16, 2026',
     readTime: '3 min read',
     category: 'Education',
+    details: {
+      ...baseDetails,
+      heroSubtitle:
+        'Pop-up libraries and reading corners make learning materials available to children who need them most.',
+    },
   },
 ]
+
 
 export const featured = {
   title: 'A community blueprint for helping children grow stronger',

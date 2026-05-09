@@ -6,6 +6,7 @@ import Category from '../views/Category'
 import PostDetails from '../views/PostDetails'
 import NotFound from '../views/NotFound'
 import PostEdit from '../views/admin/PostEdit'
+import AdminDashboard from '../views/admin/Dashboard'
 
 const userRoutes = [
   { path: '', element: <Home /> },
@@ -15,7 +16,7 @@ const userRoutes = [
 ] as const
 
 const adminRoutes = [
-  { path: '', element: <AdminLayout /> },
+  { path: '', element: <AdminDashboard /> },
   { path: 'post/create', element: <PostEdit /> },
   { path: 'post/edit/:postId', element: <PostEdit /> },
 ] as const

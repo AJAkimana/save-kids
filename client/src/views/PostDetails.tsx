@@ -28,32 +28,37 @@ import {
 } from '@mui/icons-material'
 import { Link as RouterLink, useParams } from 'react-router-dom'
 import { posts } from '../mock/home'
+import type React from 'react'
 
-const socialIcons = [
-  { label: 'Instagram', icon: <Instagram fontSize="small" /> },
-  { label: 'Pinterest', icon: <Pinterest fontSize="small" /> },
-  { label: 'Twitter', icon: <Twitter fontSize="small" /> },
-  { label: 'Facebook', icon: <Facebook fontSize="small" /> },
-  { label: 'YouTube', icon: <YouTube fontSize="small" /> },
-]
+const socialIconMap: Record<string, React.ReactNode> = {
+  Instagram: <Instagram fontSize="small" />,
+  Pinterest: <Pinterest fontSize="small" />,
+  Twitter: <Twitter fontSize="small" />,
+  Facebook: <Facebook fontSize="small" />,
+  YouTube: <YouTube fontSize="small" />,
+}
 
-const tableOfContents = [
-  'Map the local needs',
-  'Build safe learning spaces',
-  'Strengthen family support',
-  'Measure child growth',
-]
-
-const highlights = [
-  'Start with listening sessions for families and teachers.',
-  'Prioritize safety, lighting, and accessibility for every child.',
-  'Track small wins like attendance, confidence, and reading levels.',
-]
+const RichText = ({ html }: { html: string }) => (
+  <Box
+    sx={{
+      color: 'text.primary',
+      '& p': { mt: 0, mb: 2 },
+      '& ul': { pl: 3, mt: 0, mb: 2 },
+      '& li': { mb: 1 },
+      '& h3': { mt: 3, mb: 1.5, fontSize: '1.5rem' },
+    }}
+    dangerouslySetInnerHTML={{ __html: html }}
+  />
+)
 
 function PostDetails() {
   const { postId } = useParams()
   const post = posts.find((item) => item.id === postId) ?? posts[0]
+  const details = post.details
   const relatedPosts = posts.filter((item) => item.id !== post.id).slice(0, 6)
+  const socialItems = details.social
+    .map((item) => ({ ...item, icon: socialIconMap[item.label] }))
+    .filter((item) => !!item.icon)
 
   return (
     <Box>
@@ -80,7 +85,7 @@ function PostDetails() {
             />
             <Typography variant="h1">{post.title}</Typography>
             <Typography variant="body1" sx={{ color: 'rgba(255, 255, 255, 0.8)' }}>
-              Real-world strategies that help children learn, stay healthy, and grow with support.
+              {details.heroSubtitle}
             </Typography>
             <Stack direction="row" spacing={2} alignItems="center" flexWrap="wrap">
               <Stack direction="row" spacing={1} alignItems="center">
@@ -114,12 +119,9 @@ function PostDetails() {
               <Stack spacing={4}>
                 <Card sx={{ p: { xs: 2.5, md: 3 }, bgcolor: 'rgba(255,255,255,0.7)' }}>
                   <Typography variant="overline" color="text.secondary">
-                    Article overview
+                    {details.overview.title}
                   </Typography>
-                  <Typography variant="body1">
-                    This story highlights practical steps communities can take to create safer,
-                    healthier, and more empowering experiences for children.
-                  </Typography>
+                  <RichText html={details.overview.bodyHtml} />
                 </Card>
 
                 <Stack spacing={2}>
@@ -137,15 +139,9 @@ function PostDetails() {
                       },
                     }}
                   >
-                    The most effective child-focused programs feel caring, not complicated. The goal
-                    is to remove barriers so children can learn, play, and feel secure. Start with
-                    small, dependable routines that build trust and momentum.
+                    {details.lead}
                   </Typography>
-                  <Typography variant="body1">
-                    Begin with what families need most: safe spaces, basic health support, and a
-                    reliable place to learn. A few consistent services can change a child's daily
-                    experience.
-                  </Typography>
+                  <RichText html={details.introHtml} />
                 </Stack>
 
                 <Card
@@ -157,25 +153,16 @@ function PostDetails() {
                   }}
                 >
                   <Stack spacing={1}>
-                    <Typography variant="h4">
-                      "When children feel safe and seen, they are ready to grow."
-                    </Typography>
+                    <Typography variant="h4">{details.quote.text}</Typography>
                     <Typography variant="caption" color="text.secondary">
-                      Grace Njeri, program director
+                      {details.quote.author}
                     </Typography>
                   </Stack>
                 </Card>
 
                 <Stack spacing={2}>
-                  <Typography variant="h3">Start with safety and trust</Typography>
-                  <Typography variant="body1">
-                    Consistent check-ins with caregivers and teachers make programs sustainable.
-                    Small, predictable routines help children feel secure and ready to learn.
-                  </Typography>
-                  <Typography variant="body1">
-                    Pair learning with simple wellness habits like hydration breaks, movement, and
-                    clean spaces. These micro supports add up to real progress.
-                  </Typography>
+                  <Typography variant="h3">{details.sectionOne.title}</Typography>
+                  <RichText html={details.sectionOne.bodyHtml} />
                 </Stack>
 
                 <Box
@@ -185,30 +172,18 @@ function PostDetails() {
                     gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
                   }}
                 >
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="240"
-                      image="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1000&q=80"
-                    />
-                  </Card>
-                  <Card>
-                    <CardMedia
-                      component="img"
-                      height="240"
-                      image="https://images.unsplash.com/photo-1503455637927-730bce8583c0?auto=format&fit=crop&w=1000&q=80"
-                    />
-                  </Card>
+                  {details.gallery.map((item) => (
+                    <Card key={item.image}>
+                      <CardMedia component="img" height="240" image={item.image} alt={item.alt} />
+                    </Card>
+                  ))}
                 </Box>
 
                 <Stack spacing={2}>
-                  <Typography variant="h3">Build a low-barrier pathway</Typography>
-                  <Typography variant="body1">
-                    Keep support services close to where children live and learn. Combine tutoring,
-                    health checkups, and nutrition in one predictable weekly rhythm.
-                  </Typography>
+                  <Typography variant="h3">{details.sectionTwo.title}</Typography>
+                  <RichText html={details.sectionTwo.bodyHtml} />
                   <Box component="ul" sx={{ m: 0, pl: 3, color: 'text.secondary' }}>
-                    {highlights.map((item) => (
+                    {details.sectionTwo.highlights.map((item) => (
                       <Typography component="li" variant="body2" key={item} sx={{ mb: 1 }}>
                         {item}
                       </Typography>
@@ -216,11 +191,15 @@ function PostDetails() {
                   </Box>
                 </Stack>
 
+                <Card sx={{ p: { xs: 2.5, md: 3 }, bgcolor: alpha('#fff', 0.85) }}>
+                  <RichText html={details.richContentHtml} />
+                </Card>
+
                 <Divider />
 
                 <Stack direction={{ xs: 'column', sm: 'row' }} spacing={2} alignItems="center">
                   <Stack direction="row" spacing={1} flexWrap="wrap">
-                    {['Education', 'Health', 'Nutrition', 'Community'].map((tag) => (
+                    {details.tags.map((tag) => (
                       <Chip key={tag} label={tag} size="small" />
                     ))}
                   </Stack>
@@ -241,10 +220,10 @@ function PostDetails() {
               <Stack spacing={3}>
                 <Card sx={{ p: 3 }}>
                   <Typography variant="overline" color="text.secondary">
-                    Table of contents
+                    {details.tocTitle}
                   </Typography>
                   <Stack spacing={1.5} sx={{ mt: 2 }}>
-                    {tableOfContents.map((item, index) => (
+                    {details.toc.map((item, index) => (
                       <Stack direction="row" spacing={1} key={item} alignItems="center">
                         <Typography variant="caption" color="text.secondary">
                           0{index + 1}
@@ -257,11 +236,18 @@ function PostDetails() {
 
                 <Card sx={{ p: 3 }}>
                   <Typography variant="overline" color="text.secondary">
-                    Follow us
+                    {details.socialTitle}
                   </Typography>
                   <Stack direction="row" spacing={1} sx={{ mt: 2 }}>
-                    {socialIcons.map((item) => (
-                      <IconButton key={item.label} aria-label={item.label}>
+                    {socialItems.map((item) => (
+                      <IconButton
+                        key={item.label}
+                        aria-label={item.label}
+                        component={item.href ? 'a' : 'button'}
+                        href={item.href ?? undefined}
+                        target={item.href ? '_blank' : undefined}
+                        rel={item.href ? 'noreferrer' : undefined}
+                      >
                         {item.icon}
                       </IconButton>
                     ))}
@@ -270,18 +256,22 @@ function PostDetails() {
 
                 <Card sx={{ p: 3 }}>
                   <Stack spacing={1}>
-                    <Typography variant="h4">Newsletter</Typography>
+                    <Typography variant="h4">{details.newsletter.title}</Typography>
                     <Typography variant="body2" color="text.secondary">
-                      Get weekly stories, tools, and ways to support children.
+                      {details.newsletter.description}
                     </Typography>
-                    <TextField fullWidth size="small" placeholder="Enter your email" />
-                    <Button variant="contained">Subscribe</Button>
+                    <TextField
+                      fullWidth
+                      size="small"
+                      placeholder={details.newsletter.placeholder}
+                    />
+                    <Button variant="contained">{details.newsletter.buttonLabel}</Button>
                   </Stack>
                 </Card>
 
                 <Card sx={{ p: 3 }}>
                   <Typography variant="overline" color="text.secondary">
-                    The latest
+                    {details.latestHeading}
                   </Typography>
                   <Stack spacing={2} sx={{ mt: 2 }}>
                     {posts.slice(0, 3).map((item) => (
@@ -305,11 +295,14 @@ function PostDetails() {
                 <Card sx={{ p: 3, bgcolor: alpha('#000', 0.75), color: 'common.white' }}>
                   <Stack spacing={1}>
                     <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                      About the author
+                      {details.authorTitle}
                     </Typography>
-                    <Typography variant="h4">Grace Njeri</Typography>
+                    <Typography variant="h4">{details.author.name}</Typography>
+                    <Typography variant="caption" sx={{ color: 'rgba(255,255,255,0.7)' }}>
+                      {details.author.role}
+                    </Typography>
                     <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.8)' }}>
-                      Program director focused on child wellbeing, education, and community care.
+                      {details.author.bio}
                     </Typography>
                   </Stack>
                 </Card>
@@ -323,9 +316,9 @@ function PostDetails() {
         <Container maxWidth="lg" disableGutters>
           <Stack spacing={3}>
             <Stack spacing={1}>
-              <Typography variant="h2">You may also like</Typography>
+              <Typography variant="h2">{details.related.title}</Typography>
               <Typography variant="body2" color="text.secondary">
-                More stories about education, health, and safe spaces for children.
+                {details.related.subtitle}
               </Typography>
             </Stack>
             <Grid container spacing={3}>
@@ -340,7 +333,7 @@ function PostDetails() {
                           {item.date} · {item.readTime}
                         </Typography>
                         <Link component={RouterLink} to={`/view/${item.id}`} underline="none">
-                          View Post
+                          {details.relatedCtaLabel}
                         </Link>
                       </Stack>
                     </CardContent>
