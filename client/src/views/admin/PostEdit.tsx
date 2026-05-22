@@ -15,10 +15,9 @@ import DeleteOutline from '@mui/icons-material/DeleteOutline'
 import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import SunEditor from 'suneditor-react'
-import 'suneditor/dist/css/suneditor.min.css'
 import { posts, type PostCard, type PostDetailsContent } from '../../mock/home'
 
-const clone = <T,>(value: T): T => JSON.parse(JSON.stringify(value))
+const clone = <T,>(value: T): T => structuredClone(value)
 
 const emptyDetails: PostDetailsContent = {
   heroSubtitle: '',
