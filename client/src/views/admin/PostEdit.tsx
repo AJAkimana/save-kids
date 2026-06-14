@@ -11,10 +11,9 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import DeleteOutline from '@mui/icons-material/DeleteOutline'
+import { DeleteOutline } from '@mui/icons-material'
 import { useMemo, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import SunEditor from 'suneditor-react'
 import { posts, type PostCard, type PostDetailsContent } from '../../mock/home'
 
 const clone = <T,>(value: T): T => structuredClone(value)
@@ -216,18 +215,18 @@ const PostEdit = () => {
                       <Typography variant="subtitle2" color="text.secondary">
                         Overview body
                       </Typography>
-                      <SunEditor
-                        setContents={draft.details.overview.bodyHtml}
-                        onChange={(value) =>
+                      <TextField
+                        label="Overview body"
+                        value={draft.details.overview.bodyHtml}
+                        onChange={(event) =>
                           updateDetails((details) => ({
                             ...details,
-                            overview: { ...details.overview, bodyHtml: value },
+                            overview: { ...details.overview, bodyHtml: event.target.value },
                           }))
                         }
-                        height="180px"
-                        setOptions={{
-                          buttonList: [['bold', 'italic', 'underline', 'list', 'link']],
-                        }}
+                        multiline
+                        minRows={6}
+                        fullWidth
                       />
                     </Stack>
                   </CardContent>
@@ -250,15 +249,18 @@ const PostEdit = () => {
                       <Typography variant="subtitle2" color="text.secondary">
                         Intro body
                       </Typography>
-                      <SunEditor
-                        setContents={draft.details.introHtml}
-                        onChange={(value) =>
-                          updateDetails((details) => ({ ...details, introHtml: value }))
+                      <TextField
+                        label="Intro body"
+                        value={draft.details.introHtml}
+                        onChange={(event) =>
+                          updateDetails((details) => ({
+                            ...details,
+                            introHtml: event.target.value,
+                          }))
                         }
-                        height="200px"
-                        setOptions={{
-                          buttonList: [['bold', 'italic', 'underline', 'list', 'link']],
-                        }}
+                        multiline
+                        minRows={6}
+                        fullWidth
                       />
                     </Stack>
                   </CardContent>
@@ -309,18 +311,18 @@ const PostEdit = () => {
                         }
                         fullWidth
                       />
-                      <SunEditor
-                        setContents={draft.details.sectionOne.bodyHtml}
-                        onChange={(value) =>
+                      <TextField
+                        label="Section one body"
+                        value={draft.details.sectionOne.bodyHtml}
+                        onChange={(event) =>
                           updateDetails((details) => ({
                             ...details,
-                            sectionOne: { ...details.sectionOne, bodyHtml: value },
+                            sectionOne: { ...details.sectionOne, bodyHtml: event.target.value },
                           }))
                         }
-                        height="220px"
-                        setOptions={{
-                          buttonList: [['bold', 'italic', 'underline', 'list', 'link']],
-                        }}
+                        multiline
+                        minRows={6}
+                        fullWidth
                       />
                     </Stack>
                   </CardContent>
@@ -403,18 +405,18 @@ const PostEdit = () => {
                         }
                         fullWidth
                       />
-                      <SunEditor
-                        setContents={draft.details.sectionTwo.bodyHtml}
-                        onChange={(value) =>
+                      <TextField
+                        label="Section two body"
+                        value={draft.details.sectionTwo.bodyHtml}
+                        onChange={(event) =>
                           updateDetails((details) => ({
                             ...details,
-                            sectionTwo: { ...details.sectionTwo, bodyHtml: value },
+                            sectionTwo: { ...details.sectionTwo, bodyHtml: event.target.value },
                           }))
                         }
-                        height="220px"
-                        setOptions={{
-                          buttonList: [['bold', 'italic', 'underline', 'list', 'link']],
-                        }}
+                        multiline
+                        minRows={6}
+                        fullWidth
                       />
                       <Divider />
                       <Typography variant="subtitle2" color="text.secondary">
@@ -480,18 +482,18 @@ const PostEdit = () => {
                   <CardContent>
                     <Stack spacing={2}>
                       <Typography variant="h4">Rich content</Typography>
-                      <SunEditor
-                        setContents={draft.details.richContentHtml}
-                        onChange={(value) =>
+                      <TextField
+                        label="Rich content"
+                        value={draft.details.richContentHtml}
+                        onChange={(event) =>
                           updateDetails((details) => ({
                             ...details,
-                            richContentHtml: value,
+                            richContentHtml: event.target.value,
                           }))
                         }
-                        height="240px"
-                        setOptions={{
-                          buttonList: [['bold', 'italic', 'underline', 'list', 'link']],
-                        }}
+                        multiline
+                        minRows={8}
+                        fullWidth
                       />
                     </Stack>
                   </CardContent>
